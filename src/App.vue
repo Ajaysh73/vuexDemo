@@ -1,28 +1,39 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+        <h1>Vuex</h1>
+        <app-result></app-result>
+        <app-another-result></app-another-result>
+        <hr>
+        <app-counter></app-counter>
+        <app-another-counter></app-another-counter>
+        <div>
+          <hr>
+          <app-footer></app-footer>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Counter from "./components/Counter.vue";
+import AnotherCounter from "./components/AnotherCounter.vue";
+import Result from "./components/Result.vue";
+import AnotherResult from "./components/AnotherResult.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
-  name: 'app',
+  data() {
+    return {};
+  },
   components: {
-    HelloWorld
+    appCounter: Counter,
+    appAnotherCounter: AnotherCounter,
+    appResult: Result,
+    appAnotherResult: AnotherResult,
+    appFooter: Footer
   }
-}
+};
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
