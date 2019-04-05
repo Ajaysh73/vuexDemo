@@ -8,6 +8,13 @@
         <hr>
         <app-counter></app-counter>
         <app-another-counter></app-another-counter>
+        <hr>
+        <!-- <input type="text" name id=" " :value="value" @input="updateValue">
+        <p>Value of variable is {{ value }}</p>-->
+
+        <input type="text" name id=" " v-model="value">
+        <p>Value of variable is {{ value }}</p>
+
         <div>
           <hr>
           <app-footer></app-footer>
@@ -27,6 +34,26 @@ import Footer from "./components/Footer.vue";
 export default {
   data() {
     return {};
+  },
+  // computed: {
+  //   value() {
+  //     return this.$store.getters.value;
+  //   }
+  // },
+  // methods: {
+  //   updateValue(event) {
+  //     this.$store.dispatch("updateValue", event.target.value);
+  //   }
+  // },
+  computed: {
+    value: {
+      get() {
+        return this.$store.getters.value;
+      },
+      set(value) {
+        this.$store.dispatch("updateValue", value);
+      }
+    }
   },
   components: {
     appCounter: Counter,
